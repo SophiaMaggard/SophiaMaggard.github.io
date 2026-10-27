@@ -75,9 +75,11 @@
         var positionX = 0;
         var points = 1;
         var speedX = 10;
-        var positionY;
-        var speedY;
+        var positionY = 0;
+        var speedY = 7;
+        var clicks = 0;
         var boardHeight = jQuery(window).height();
+        
 
 
 
@@ -89,15 +91,21 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
-         moveBoxTo(positionX, positionY);
-          positionX += speedX;
-        if (positionX >= boardWidth){
-       speedX *= -1
-        }else if(positionX <= 0){
-          speedX *= -1
+        positionX += speedX;
+        positionY += speedY
+        moveBoxTo(positionX, positionY);
+        if(positionX > boardWidth) {
+          speed *= -1;
         } 
-         
-
+        if (positionX < 0){
+          speed *= -1;
+        }
+        if(positionY > boardHeight) {
+          speed *= -1;
+        } 
+        if (positionY < 0){
+          speed *= -1;
+        }
 
         
 
@@ -113,6 +121,7 @@
          */
         function handleBoxClick() {
        positionX = 0;
+       points += 1;
        speedX += 3; 
        speedX = 3 * points + 10;
       changeBoxText(points++);
