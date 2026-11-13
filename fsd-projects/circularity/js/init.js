@@ -35,15 +35,15 @@ var init = function (window) {
     });
 
     // TODO 3 : Call the drawCircle() function
-    // drawCircle();
-    // drawCircle();
-    // drawCircle();
-    // drawCircle();
-    // drawCircle();
+    // drawCircle(0);
+    // drawCircle(1);
+    // drawCircle(2);
+    // drawCircle(3);
+    // drawCircle(4);
 
     // TODO 7 : Use a loop to create multiple circles
     for (var i = 0; i < 50; i++) {
-      drawCircle(50);
+      drawCircle();
     }
 
     ///////////////////
@@ -89,9 +89,8 @@ var init = function (window) {
       var topEdge = circle.y - circle.radius;
       var bottomEdge = circle.y + circle.radius;
       // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-      if (circle.x > canvas.width) {
-        circle.x = 0;
-        rightEdge = circle.x - circle.radius;
+      if (rightEdge > canvas.width) {
+        circle.x = - circle.radius;
       }
 
       // TODO 6 : YOUR CODE STARTS HERE //////////////////////
